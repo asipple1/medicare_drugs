@@ -1,0 +1,34 @@
+.container
+  .text-center
+    h1 Sutton Ryan
+    h4 medicare drugs
+    br
+    br
+    - @type.each do |drug|
+      h2 = drug.type_name
+  .col-md-6
+    .text-center
+      h4 prefered
+    table.table
+      thead
+        th Brand Name
+        th Generic Name
+      tbody
+        tr
+          - @type.each do |drug|
+            - drug.prefered.each do |prefered|
+              td = prefered.brand_name
+              td = prefered.generic_name
+  .col-md-6
+    .text-center
+      h4 non-prefered
+    table.table
+      thead
+        th Brand Name
+        th Generic Name
+      tbody
+        tr
+          - @type.each do |drug|
+            - drug.non_prefered.each do |non|
+              td = non.brand_name
+              td = non.generic_name
